@@ -17,6 +17,9 @@ public class userLogins {
 	private int userid;
 	@Column
 	private String username;
+	@Column
+	private String email;
+	
 	
 	public int getUserid() {
 		return userid;
@@ -30,6 +33,12 @@ public class userLogins {
 		this.username = username;
 	}
 
+	public String getEmail() {
+		return email;
+	}
 	
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 }
