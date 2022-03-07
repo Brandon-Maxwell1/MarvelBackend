@@ -66,14 +66,14 @@ public class UserLoginsController {
 		return ResponseEntity.ok(updatedUser);
 	}
 	
-	@DeleteMapping("user/{userid}")
-	public ResponseEntity<String> deleteUser(@PathVariable int userid) {
-		userRepo.findById(userid).orElseThrow(() -> new ResourceNotFoundException("User doesn't exist"));
-		
-		String message = "User has been deleted.";
-		
-		userRepo.deleteById(userid);
-		return new ResponseEntity<>(message, HttpStatus.OK);
-	}
+//	@DeleteMapping("user/{userid}")
+//	public ResponseEntity<String> deleteUser(@PathVariable int userid) {
+//		userRepo.findById(userid).orElseThrow(() -> new ResourceNotFoundException("User doesn't exist"));
+//		
+//		String message = "User has been deleted.";
+//		
+//		userRepo.deleteById(userid);
+//		return new ResponseEntity<>(message, HttpStatus.OK);
+//	}
 		
 }
