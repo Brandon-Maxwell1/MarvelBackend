@@ -41,10 +41,10 @@ public class UserLoginsController {
 	}
 	
 	@GetMapping("allusers/{username}")
-	public List<userLogins> getUserByUsername(@PathVariable String username) {
-		List<userLogins> user = userRepo.findByUsername(username);
-		if (user.isEmpty()) {
-			System.out.println(new ResourceNotFoundException("User(s) with the name " + username + " not found."));
+	public userLogins getUserByUsername(@PathVariable String username) {
+		userLogins user = userRepo.findByUsername(username);
+		if (user.getUsername().isEmpty()) {
+			throw new ResourceNotFoundException("User(s) with the name " + username + " not found.");
 		}
 		return userRepo.findByUsername(username);
 	}
@@ -53,6 +53,16 @@ public class UserLoginsController {
 	public userLogins newUser(@RequestBody userLogins user) {
 		return userRepo.save(user);
 	}
+	
+	@PostMapping("login")
+	public userLogins loginUser(@RequestBody userLogins user) {
+		userLogins login = userRepo.findByUsername(user.getUsername());
+		if (login.getUsername().isEmpty()) {
+			throw new ResourceNotFoundException("User(s) with the name " + user + " not found.");
+		}
+		return login;
+	}
+	
 	
 	@PutMapping("user/{userid}")
 	public ResponseEntity<userLogins> updateUser(@PathVariable int userid, @RequestBody userLogins newUserInfo) {

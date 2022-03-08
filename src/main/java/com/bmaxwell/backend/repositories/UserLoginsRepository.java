@@ -9,6 +9,6 @@ import com.bmaxwell.backend.models.userLogins;
 
 @Repository
 public interface UserLoginsRepository extends JpaRepository<userLogins, Integer>{
-	List<userLogins> findByUsername(String username);
+	<List>userLogins findByUsername(String username);	
 
 }
