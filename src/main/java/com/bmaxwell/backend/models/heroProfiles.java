@@ -22,10 +22,8 @@ public class heroProfiles {
 	private String name;
 	@Column
 	private String description;
-	@Lob
-	@Column(name = "thumbnailpath")
-	@Type(type = "org.hibernate.type.BinaryType")
-	private byte[] thumbnailpath;
+	@Column
+	private String thumbnailpath;
 	
 	
 	public int getId() {
@@ -47,13 +45,15 @@ public class heroProfiles {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	public byte[] getThumbnailpath() {
+
+	public String getThumbnailpath() {
 		return thumbnailpath;
 	}
-	
-	public void setThumbnailpath(byte[] thumbnailpath) {
+
+	public void setThumbnailpath(String thumbnailpath) {
 		this.thumbnailpath = thumbnailpath;
 	}
+	
+	
 	
 }
